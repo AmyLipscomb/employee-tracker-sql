@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   // Your username
   user: "root",
   // Your password
-  password: "rootroot",
+  password: "rootRoot!",
   database: "employees"
 });
 
@@ -14,3 +14,6 @@ connection.connect(function (err) {
 });
 
 module.exports = connection;
+
+// Use this when you want to END the script!!! Usually this is the last line in our file. It ends the connection. Make sure it's in your code!!! 
+connection.end();
