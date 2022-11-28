@@ -13,4 +13,29 @@ VALUES
 ("Sarah", "Lourde", "Legal Team Lead", "Legal", "250000"),
 ("Tom", "Holland", "Lawyer", "Legal", "190000");
 
+SELECT * FROM employee;
+
 -- Need to insert data into the department and role tables --
+INSERT INTO department
+(`name`)
+VALUES
+("Sales", "Engineering", "Finance","Legal");
+
+SELECT * FROM department;
+
+
+INSERT INTO `role`
+(title, salary, department_id)
+VALUES
+("Sales Lead", "Sales", 1),
+("Salesperson", "Sales", 2),
+("Lead Engineer", "Engineering", 3),
+("Software Engineer", "Engineering", 4),
+("Account Manager", "Finance", 5),
+("Accountant", "Finance", 6),
+("Legal Team Lead", "Legal", 7),
+("Lawyer", "Legal", 8);
+
+SELECT * FROM `role`;
+
+

@@ -16,7 +16,7 @@ USE employee_db;
         id INT auto_increment NOT NULL, -- creates an ID automatically --
 
         -- makes a string column called "name" which cannot contain null ---
-        name VARCHAR(100) NOT NULL,
+        name VARCHAR(30) NOT NULL,
 
         PRIMARY KEY (id) -- both primary key and auto_increment has to be set for the column id to work correctly -- 
     );
@@ -39,13 +39,13 @@ USE employee_db;
     CREATE TABLE employee(
          id INT auto_increment NOT NULL, -- creates an ID automatically --
 
-         first_name VARCHAR(100) NOT NULL,
+         first_name VARCHAR(30) NOT NULL,
 
-         last_name VARCHAR(100) NOT NULL, 
+         last_name VARCHAR(30) NOT NULL, 
 
          role_id INT NOT NULL, -- this will match the id from the role table --   
 
-         manager_id INT NOT NULL,
+         manager_id NULL,
 
          PRIMARY KEY (id) -- both primary key and auto_increment has to be set for the column id to work correctly -- 
     );
