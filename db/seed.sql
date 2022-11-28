@@ -1,3 +1,6 @@
+-- Use employee__tracker_db database --
+USE employee_tracker_db;
+
 -- SEED file inserts data --
 INSERT INTO employee 
 
