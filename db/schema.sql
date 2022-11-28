@@ -1,11 +1,11 @@
--- Drops the employee_db if it exists currently --
-DROP DATABASE IF EXISTS employee_db;
+-- Drops the employee__tracker_db if it exists currently --
+DROP DATABASE IF EXISTS employee_tracker_db;
 
--- Creates the employee_db database --
-CREATE DATABASE employee_db;
+-- Creates the employee__tracker_db database --
+CREATE DATABASE employee_tracker_db;
 
--- Use employee_db database --
-USE employee_db;
+-- Use employee__tracker_db database --
+USE employee_tracker_db;
 
 
 -- Creates 3 tables: Department, Role, and Employee ---
