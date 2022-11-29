@@ -5,40 +5,43 @@ USE employee_tracker_db;
 INSERT INTO employee 
 
 -- columns should match the values below --
-(first_name, last_name, title, department, salary, manager)
+(id, first_name, last_name, role_id, manager_id)
 VALUES 
-("John", "Doe", "Sales Lead", "Sales", "100000"),
-("Mike", "Chan", "Salesperson", "Sales", "80000", "John Doe"),
-("Ashley", "Garcia", "Lead Engineer", "Engineering", "150000"),
-("Kevin", "Tupik", "Software Engineer", "Engineering", "125000", "Ashley Garcia"),
-("Kunal", "Singh", "Account Manager", "Finance", "160000"),
-("Malia", "Brown", "Accountant", "Finance", "125000", "Kunal Singh"),
-("Sarah", "Lourde", "Legal Team Lead", "Legal", "250000"),
-("Tom", "Holland", "Lawyer", "Legal", "190000");
+(1, "John", "Doe", 1, NULL),
+(2, "Mike", "Chan", 2, 1),
+(3, "Ashley", "Garcia", 3, NULL),
+(4, "Kevin", "Tupik", 4, 2),
+(5, "Kunal", "Singh", 5, NULL),
+(6, "Malia", "Brown", 6, 3),
+(7, "Sarah", "Lourde", 7, NULL),
+(8, "Tom", "Holland", 8, 4);
 
-SELECT * FROM employee;
+-- SELECT * FROM employee;
 
 -- Need to insert data into the department and role tables --
 INSERT INTO department
-(`name`)
+(id,name)
 VALUES
-("Sales", "Engineering", "Finance","Legal");
+(1, "Sales"),
+(2, "Engineering"),
+(3, "Finance"),
+(4,"Legal");
 
-SELECT * FROM department;
+-- SELECT * FROM department;
 
 
-INSERT INTO `role`
-(title, salary, department_id)
+INSERT INTO role
+(id, title, salary, department_id)
 VALUES
-("Sales Lead", "Sales", 1),
-("Salesperson", "Sales", 2),
-("Lead Engineer", "Engineering", 3),
-("Software Engineer", "Engineering", 4),
-("Account Manager", "Finance", 5),
-("Accountant", "Finance", 6),
-("Legal Team Lead", "Legal", 7),
-("Lawyer", "Legal", 8);
+(1, "Sales Lead", 100000, 1),
+(2, "Salesperson", 80000, 1),
+(3, "Lead Engineer",150000, 2),
+(4, "Software Engineer", 125000, 2),
+(5, "Account Manager", 160000, 3),
+(6, "Accountant", 125000, 3),
+(7, "Legal Team Lead", 250000 , 4),
+(8, "Lawyer", 190000, 4);
 
-SELECT * FROM `role`;
+-- SELECT * FROM role;
 
 
