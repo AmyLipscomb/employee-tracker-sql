@@ -49,3 +49,6 @@ USE employee_tracker_db;
 
          PRIMARY KEY (id) -- both primary key and auto_increment has to be set for the column id to work correctly -- 
     );
+
+-- To show the tables created --
+    SHOW TABLES;
