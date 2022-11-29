@@ -43,11 +43,23 @@ function mainMenu (){
 
 }
 
-//continue to create the functions for all of the ones you made 
+//continue to create the functions for all of the ones made in the .then
 
 function viewAllEmployees(){
-    
+    //enter a join
 }
+
+function  viewAllRoles()
+
+function viewAllDepartments()
+
+function  addADepartment()
+
+function  addARole()
+
+function  addAnEmployee()
+
+function  updateAnEmployee()
 
 function quit(){
     process.exit()
