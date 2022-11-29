@@ -45,7 +45,7 @@ USE employee_tracker_db;
 
          role_id INT NOT NULL, -- this will match the id from the role table --   
 
-         manager_id NULL,
+         manager_id INT NULL,
 
          PRIMARY KEY (id) -- both primary key and auto_increment has to be set for the column id to work correctly -- 
     );
