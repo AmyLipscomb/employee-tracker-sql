@@ -4,26 +4,21 @@ const inquirer = require("inquirer");
 
 const viewAllEmployees = () => {
     // (id, first_name, last_name, role_id, manager_id)
-
-   return db.query(
-        `CREATE VIEW employee SET ?`,
-        {
-            id: "1,2,3,4,5,6,7,8",
-            first_name: "John, Mike, Ashley, Kevin, Kunal, Malia, Sarah, Tom",
-            last_name: "Doe, Chan, Garcia, Tupik, Singh, Brown, Lourde, Holland",
-            role_id: "1,2,3,4",
-            manager_id: "1,2,3,4,NULL"
-        },
+    return db.query(
+        // read from employee
+        `SELECT * FROM employee`,
         (err, result) => {
-            if (err) {
-              console.log(err);
-            }
-            console.log(result);
-          });
+          if(err) console.error(err);
+          let formattedResult = result.map( obj => Object.values(obj));
+          // add column names
+          formattedResult.unshift(["id","first_name", "last_name", "role_id", "manager_id"]);
+          console.log(formattedResult);
+        //   console.log(table(formattedResult));
+          mainMenu();
+        }
+      )
+    }
 
-   
-    return mainMenu();
-}
 
 function mainMenu (){
     inquirer.prompt([
@@ -83,6 +78,13 @@ function mainMenu (){
 // function  addAnEmployee()
 
 // function  updateAnEmployee()
+
+//Update employee
+    //-Will need to do an inquirer 
+// const updateAnEmployee = () => {
+    
+// }
+
 
 function quit(){
     process.exit()
