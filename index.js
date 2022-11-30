@@ -17,7 +17,24 @@ const viewAllEmployees = () => {
           mainMenu();
         }
       )
-    }
+    };
+
+    const viewAllRoles = () => {
+        // (id, title, salary, department_id)
+        return db.query(
+            // read from role
+            `SELECT * FROM role`,
+            (err, result) => {
+              if(err) console.error(err);
+              let formattedResult = result.map( obj => Object.values(obj));
+              // add column names
+              formattedResult.unshift(["id","title", "salary", "department_id"]);
+              console.log(formattedResult);
+            //   console.log(table(formattedResult));
+              mainMenu();
+            }
+          )
+        }
 
 
 function mainMenu (){
