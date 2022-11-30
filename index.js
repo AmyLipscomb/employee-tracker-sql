@@ -34,8 +34,24 @@ const viewAllEmployees = () => {
               mainMenu();
             }
           )
-        }
+        };
 
+        const viewAllDepartments = () => {
+            // (id,name)
+            return db.query(
+                // read from departments
+                `SELECT * FROM department`,
+                (err, result) => {
+                  if(err) console.error(err);
+                  let formattedResult = result.map( obj => Object.values(obj));
+                  // add column names
+                  formattedResult.unshift(["id","name"]);
+                  console.log(formattedResult);
+                //   console.log(table(formattedResult));
+                  mainMenu();
+                }
+              )
+            };
 
 function mainMenu (){
     inquirer.prompt([
