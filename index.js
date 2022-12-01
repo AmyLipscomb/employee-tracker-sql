@@ -1,7 +1,7 @@
 const db = require('./db/connection.js');
 const inquirer = require("inquirer");
 
-
+//To view employees
 const viewAllEmployees = () => {
     // (id, first_name, last_name, role_id, manager_id)
     return db.query(
@@ -18,7 +18,7 @@ const viewAllEmployees = () => {
         }
       )
     };
-       //table doesn't appear
+       //To add an employee
        const addAnEmployee = () => {
         // assume you use inquirer to get the following
         //  (id, first_name, last_name, role_id, manager_id)
@@ -71,7 +71,7 @@ const viewAllEmployees = () => {
     
     };
 
-    //table appears
+    //To view roles 
     const viewAllRoles = () => {
         // (id, title, salary, department_id)
         return db.query(
@@ -89,6 +89,7 @@ const viewAllEmployees = () => {
           )
         };
         
+        //To add a role 
         const addARole = () => {
             // assume you use inquirer to get the following
             // (id, title, salary, department_id)
@@ -138,7 +139,7 @@ const viewAllEmployees = () => {
           };     
 
 
-        //table appears
+        //To view departments
         const viewAllDepartments = () => {
             // (id,name)
             return db.query(
@@ -156,7 +157,7 @@ const viewAllEmployees = () => {
               )
             };
 
-           
+           //To add a department
             const addADepartment = () => {
                 // assume you use inquirer to get the following
                 //  (id,name)
@@ -211,7 +212,8 @@ const viewAllEmployees = () => {
               };
 
                 
-
+              //To update an employee
+            //   const updateAnEmployee
 
 function mainMenu (){
     inquirer.prompt([
