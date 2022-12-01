@@ -53,6 +53,50 @@ const viewAllEmployees = () => {
               )
             };
 
+            //Questions appear in the terminal, but the code doesn't work.
+            const addADepartment = () => {
+                // assume you use inquirer to get the following
+                //  
+              
+                return inquirer.prompt([
+                  {
+                    type: "input",
+                    message: "What is the name of the department? ",
+                    name: "name"
+                  },
+                  {
+                    type: "input",
+                    message: "What is the name of the role? ",
+                    name: "title"
+                  },
+                  {
+                    type: "input",
+                    message: "What is the salary of the role? ",
+                    name: "salary"
+                  },
+                ])
+                
+                .then( param => {
+                  
+                  db.query(
+                  `INSERT INTO department SET ?`, `INSERT INTO role SET ?`,
+                  [
+                 
+                    param
+                  ],
+                 
+                  function (err, result) {
+                    if (err) {
+                      console.log(err);
+                    }
+                    // console.log(result);
+                    mainMenu();
+                  });
+                });
+                
+              }
+
+
 function mainMenu (){
     inquirer.prompt([
         {
