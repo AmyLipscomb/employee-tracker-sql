@@ -1,6 +1,6 @@
 const db = require('./db/connection.js');
 const inquirer = require("inquirer");
-// const { table } = require('table');
+require("console.table");
 
 //To view employees
 const viewAllEmployees = () => {
