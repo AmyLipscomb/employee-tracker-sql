@@ -33,7 +33,7 @@ To use the npm packages, "inquirer" and "mysql2", I typed the following code int
 npm i inquirer@8.2.4 mysql2
 ```
 
-The npm package, console.table was also utilized. The following was typed into the command line to install it: 
+The npm package, "console.table" was also utilized. The following was typed into the command line to install it: 
 
 ```
 npm i console.table --save
