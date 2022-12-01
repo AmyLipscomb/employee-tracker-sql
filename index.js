@@ -18,7 +18,60 @@ const viewAllEmployees = () => {
         }
       )
     };
+       //table doesn't appear
+       const addAnEmployee = () => {
+        // assume you use inquirer to get the following
+        //  (id, first_name, last_name, role_id, manager_id)
+      
+        return inquirer.prompt([
+        {
+            type: "number",
+            message: "What is the id of the new employee? ",
+            name: "id"
+            },
 
+          {
+            type: "input",
+            message: "What is the first name of the new employee? ",
+            name: "first_name"
+          },
+          {
+            type: "input",
+            message: "What is the last name of the new employee?",
+            name: "last_name"
+          },
+          {
+            type: "number",
+            message: "What is the role of the new employee? ",
+            name: "role_id"
+          },
+          {
+            type: "number",
+            message: "Who is the manager of the new employee? ",
+            name: "manager_id"
+          },
+
+        ])
+        .then(param => {
+            db.query(
+                // assume you use inquirer to get the following
+                `INSERT INTO employee SET?`,[
+                    param
+                ],
+                function (err, result) {
+                if(err) console.error(err);
+                let formattedResult = result.map( obj => Object.values(obj));
+                // add column names
+                formattedResult.unshift(["id","first_name", "last_name", "role_id", "manager_id"]);
+                console.log(formattedResult);
+                //   console.log(table(formattedResult));
+                mainMenu();
+                }
+            )})
+    
+    };
+
+    //table appears
     const viewAllRoles = () => {
         // (id, title, salary, department_id)
         return db.query(
@@ -35,7 +88,57 @@ const viewAllEmployees = () => {
             }
           )
         };
+        
+        const addARole = () => {
+            // assume you use inquirer to get the following
+            // (id, title, salary, department_id)
+          
+            return inquirer.prompt([
+                {
+                    type: "number",
+                    message: "What is the id of the new role? ",
+                    name: "id"
+                    },
+        
+                {
+                type: "input",
+                message: "What is the name of the role? ",
+                name: "title"
+              },
+              {
+                type: "input",
+                message: "What is the salary of the role?",
+                name: "salary"
+              },
+              {
+                type: "number",
+                message: "What is the department of the role? ",
+                name: "department_id"
+              },
+            ])
+            
+            .then( param => {
+              
+              db.query(
+              `INSERT INTO role SET ?`, 
+              [
+             
+                param
+              ],
+             
+              function (err, result) {
+                if (err) {
+                  console.log(err);
+                }
+                // console.log(result);
+                mainMenu();
+              });
+            });
+            
+          };     
 
+
+        //table appears
         const viewAllDepartments = () => {
             // (id,name)
             return db.query(
@@ -53,12 +156,18 @@ const viewAllEmployees = () => {
               )
             };
 
-            //Questions appear in the terminal, but the code doesn't work.
+           
             const addADepartment = () => {
                 // assume you use inquirer to get the following
-                //  
+                //  (id,name)
               
                 return inquirer.prompt([
+                    {      
+                        type: "number",
+                        message: "What is the id of the new department? ",
+                        name: "id"
+                    },
+
                   {
                     type: "input",
                     message: "What is the name of the department? ",
@@ -73,6 +182,11 @@ const viewAllEmployees = () => {
                     type: "input",
                     message: "What is the salary of the role? ",
                     name: "salary"
+                  },
+                  {
+                    type: "list",
+                    message: "Which department does the role belong to? ",
+                    choices: ["Sales", "Engineering", "Finance", "Legal", "Customer Service"]
                   },
                 ])
                 
@@ -94,7 +208,9 @@ const viewAllEmployees = () => {
                   });
                 });
                 
-              }
+              };
+
+                
 
 
 function mainMenu (){
