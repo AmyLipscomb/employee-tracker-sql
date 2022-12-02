@@ -3,16 +3,13 @@
 
 ## Description
 
-<!-- I don't know about you, but every day there's at least 2-3 things I write down as notes to myself. However, instead of writing reminders on random pieces of paper, I can now utilize my note-taker and so can you! I used the npm package, [Express](https://www.npmjs.com/package/express) to help create my site. Express is a a Node.js web framework, that allows its' users to structure web applications to handle different http requests at a specific url. Below are pictures of the final results!   -->
+Keeping track of employees of a business is an important and crucial task. There are constant updates that need to be made regarding the information of an employee, including:
+  * Name, 
+  * Role,
+  * Department and, 
+  * Salary, which is last, but certaintly not least.
 
-<!-- ![homepage](./public/assets/css/images/noteTakerhomepage.png)
-
-![note](./public/assets/css/images/amysNote.png) -->
-
-
-
- 
-
+So, in order to keep all of this useful information in one place, I created a database using SQL. Within the database, I created 3 tables- an employee table, a roles table, and a department table. Please continue to read to learn more about how how I created them! 
 ----
 ## Table of Contents 
 
@@ -44,57 +41,24 @@ npm i console.table --save
 
 ## Usage
 
-<!-- In order to get my site up and running using Heroku, my repo needed the following four items:
+  The first step to my tracker was creating a database that would hold the data I wanted to track. In order to do that, I created a schema file. Within this file, databases can be dropped (deleted), created, and used. Typically, when creating a database, it's best to "drop it" first. This ensures you're starting fresh, when you create your new database. You can see the steps I took in the screenshot below!
 
-1. gitnore - Allows Node to run.  
+  ![createdatabase](./assets/css/images/dropcreateusedb.png)
 
-2. [package.json](https://heynode.com/tutorial/what-packagejson/) -  This JSON file holds important information that the program uses. 
+  The schema file not only holds the creation of the database, but also its' tables. Every table needs data in order for it to be useful. So, once the tables are made, a seed file has to be created. The seed file inserts the data into the tables created within the schema. Below is a screenshot of the code I wrote for the department table. The schema file is on the left and the seed file is to the right. 
+  
+  ![schema&seed](./assets/css/images/departmentschemaandseed.png)
 
-3. server.js - This file creates the server (among other things)! 
+  Notice how in the schema file, I'm creating the table.  For department, I wanted the table to provide an ID and name. Then look to the seed file. There is where I insert the data I want to feed into my table. 
 
-4. PORT - The PORT is defined in the server.js file. When connecting to Heroku, it's important to include the code:
+  
+  My next step was to utilize JavaScript. I created a connection.js file that connected SQL to the terminal, and then created an index.js file that contained the questions I wanted to run inside the terminal.I used the npm package, inquirer, to create the questions. Click [here](https://app.castify.com/view/9b552a22-1fd3-43e7-b6f9-6ce1346c4acd), to view a quick demo of how the questions appeared within the terminal! 
 
-```
-process.env.PORT || Enter Port Number
-```
-
-I used the PORT number 9002, however you can use whatever number you want when creating the PORT.  
-
-![servercode](./public/assets/css/images/serverjscode.png)
-
-After creating the server, you can run it by typing this line of code into the terminal: -->
+Once I was ready to run the server, I did so by typing this line of code into the terminal: 
 
 ```
 node index.js
 ```
-
-<!-- Once you do that, it should be awake (if you use app.listen - lines 21-23)! 
-
-![serverawake](./public/assets/css/images/server-awake.png)
-
-*Note- If you want to kill the server, within the terminal, click "control + C". 
-
-The purpose of a server is to listen for a request, AND send back a response. To get a response, routes need to be created, utilizing HTTP request methods. There are four request methods, and for my website I used the first 3 listed below:
-
-1. POST - Creates
-2. GET  - Reads
-3. DELETE - Deletes
-4. PUT - Updates
-
-When I made routes, in order to make the code easier to follow, I created a "routes" folder, and created two js files- one for api routes, and one for html routes. I then connected them to the server.js file (can be seen on lines 16 & 17 in the screenshot above). 
-
-Check out my code below to see the HTTP requests! 
-
-<strong>Api Route</strong>
-
-![apiroute](./public/assets/css/images/apiroutecode.png)
-
-<strong>HTML Route</strong>
-
-![htmlroute](./public/assets/css/images/htmlroutecode.png)
-
-
-Before deploying via Heroku, I tested my node server to make sure everything was working smoothly! -->
 
 
 ---

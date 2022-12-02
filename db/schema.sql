@@ -60,3 +60,6 @@ USE employee_tracker_db;
 
 -- To show the tables created --
     SHOW TABLES;
+
+
+    --    CONSTRAINT fk_department
