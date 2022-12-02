@@ -10,6 +10,8 @@ Keeping track of employees of a business is an important and crucial task. There
   * Salary, which is last, but certaintly not least.
 
 So, in order to keep all of this useful information in one place, I created a database using SQL. Within the database, I created 3 tables- an employee table, a roles table, and a department table. Please continue to read to learn more about how how I created them! 
+
+
 ----
 ## Table of Contents 
 
@@ -49,12 +51,12 @@ npm i console.table --save
   
   ![schema&seed](./assets/css/images/departmentschemaandseed.png)
 
-  Notice how in the schema file, I'm creating the table.  For department, I wanted the table to provide an ID and name. Then look to the seed file. There is where I insert the data I want to feed into my table. 
+  Notice, in the schema file, I'm creating the table.  For department, I wanted the table to provide an ID and name. Then, refer to the seed file. There is where I insert the data I want to feed into my table. 
 
   
   My next step was to utilize JavaScript. I created a connection.js file that connected SQL to the terminal, and then created an index.js file that contained the questions I wanted to run inside the terminal.I used the npm package, inquirer, to create the questions. Click [here](https://app.castify.com/view/9b552a22-1fd3-43e7-b6f9-6ce1346c4acd), to view a quick demo of how the questions appeared within the terminal! 
 
-Once I was ready to run the server, I did so by typing this line of code into the terminal: 
+Once I was ready to run the questions, I did so by typing this line of code into the terminal: 
 
 ```
 node index.js
